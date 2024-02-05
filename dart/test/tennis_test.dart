@@ -1,11 +1,11 @@
 import 'dart:math';
 
-import 'package:test/test.dart';
+import '../lib/tennis_game.dart';
+import '../lib/tennis_game1.dart';
+import '../lib/tennis_game2.dart';
+import '../lib/tennis_game3.dart';
 
-import '../lib/TennisGame.dart';
-import '../lib/TennisGame1.dart';
-import '../lib/TennisGame2.dart';
-import '../lib/TennisGame3.dart';
+import 'package:test/test.dart';
 
 main() {
   var allScores = [
@@ -54,30 +54,36 @@ main() {
   }
 
   group('checkAllScoresTennisGame1', () {
-    allScores.forEach((tested) {
-      test('${tested.player1Score} - ${tested.player2Score} - ${tested.expectedScore}', () {
-        TennisGame1 game = new TennisGame1("player1", "player2");
+    for (var tested in allScores) {
+      test(
+          '${tested.player1Score} - ${tested.player2Score} - ${tested.expectedScore}',
+          () {
+        TennisGame1 game = TennisGame1("player1", "player2");
         checkAllScores(game, tested);
       });
-    });
+    }
   });
 
   group('checkAllScoresTennisGame2', () {
-    allScores.forEach((tested) {
-      test('${tested.player1Score} - ${tested.player2Score} - ${tested.expectedScore}', () {
-        TennisGame2 game = new TennisGame2("player1", "player2");
+    for (var tested in allScores) {
+      test(
+          '${tested.player1Score} - ${tested.player2Score} - ${tested.expectedScore}',
+          () {
+        TennisGame2 game = TennisGame2("player1", "player2");
         checkAllScores(game, tested);
       });
-    });
+    }
   });
 
   group('checkAllScoresTennisGame3', () {
-    allScores.forEach((tested) {
-      test('${tested.player1Score} - ${tested.player2Score} - ${tested.expectedScore}', () {
-        TennisGame3 game = new TennisGame3("player1", "player2");
+    for (var tested in allScores) {
+      test(
+          '${tested.player1Score} - ${tested.player2Score} - ${tested.expectedScore}',
+          () {
+        TennisGame3 game = TennisGame3("player1", "player2");
         checkAllScores(game, tested);
       });
-    });
+    }
   });
 }
 
@@ -86,5 +92,5 @@ class TennisTest {
   int player2Score;
   String expectedScore;
 
-  TennisTest(this.player1Score, this.player2Score, this.expectedScore) {}
+  TennisTest(this.player1Score, this.player2Score, this.expectedScore);
 }
